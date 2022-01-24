@@ -7,10 +7,16 @@
              {% csrf_token %}
              <fieldset>
                  <legend class="border-bottom mb-4">Join Today</legend>
-                 {{ form|crispy }}
+                 <!-- {{ form|crispy }} -->
+                 {% for field in form %}
+                 <label>{{field.label_tag}}</label>
+                 {{field}}
+                 
+                 {% endfor%}
              </fieldset>
              <div class="form-group">
-                 <button class="btn btn-outline-info" type="submit">Sing Up</button>
+                 <button class="btn btn-outline-info" type="submit">Sign Up</button>
+                <div class="text-danger"> <p>{{form.errors}}</p></div>
              </div>
          </form>
         <div class="border-top pt-3">
